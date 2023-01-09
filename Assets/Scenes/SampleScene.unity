@@ -5465,6 +5465,10 @@ PrefabInstance:
       propertyPath: movementFilter.layerMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7374538002461581812, guid: a1d3e10b51ef7f24aa72505225aec27e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.136
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d3e10b51ef7f24aa72505225aec27e, type: 3}
 --- !u!4 &6979260601005651767 stripped

@@ -84,10 +84,17 @@ public class PlayerController : MonoBehaviour
         SetSpeedOnAttack(lockedRotation);
     }
 
+    public void StopSwordAttack(){
+        //UnlockRotation();
+        swordAttack.StopAttack();
+    }
+
     public void SwordAttack(){
-        LockRotation();
-        if(spriteRenderer.flipX == true)
+        //LockRotation();
+        if(spriteRenderer.flipX == true){
+        print("leftAttack");
             swordAttack.AttackLeft();
+    }
         else 
         swordAttack.AttackRight();
     }
