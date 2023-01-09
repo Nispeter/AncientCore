@@ -92,7 +92,6 @@ public class PlayerController : MonoBehaviour
     public void SwordAttack(){
         //LockRotation();
         if(spriteRenderer.flipX == true){
-        print("leftAttack");
             swordAttack.AttackLeft();
     }
         else 

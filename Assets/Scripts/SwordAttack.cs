@@ -8,13 +8,9 @@ public class SwordAttack : MonoBehaviour
         left,right
     }
     public AttackDirection attackDirection;
-
-    [SerializeField] private Collider2D swordCollider;
-    [SerializeField] private bool lastAttackRight = false;
-    [SerializeField] private bool lastAttackLeft = false;
+    public Collider2D swordCollider;
     
     private void FStart(){
-        swordCollider = GetComponent<Collider2D>();
     }
     public void Swing(){
         switch (attackDirection)
@@ -30,19 +26,28 @@ public class SwordAttack : MonoBehaviour
     }
     public void AttackRight(){
         swordCollider.enabled = true;
-        if(lastAttackLeft)  transform.localPosition = new Vector2 (transform.localPosition.x*-1 , transform.localPosition.y);
-        lastAttackRight = true;
-        lastAttackLeft = false;
+        if(transform.localScale.x < 0)  
+            transform.localScale = new Vector2 (transform.localScale.x*-1 , transform.localScale.y);
     }
     public void AttackLeft(){
         swordCollider.enabled = true;
-        if(lastAttackRight){
-            transform.localPosition = new Vector2(transform.localPosition.x*-1 ,transform.localPosition.y);
+        if(transform.localScale.x > 0){
+            transform.localScale = new Vector2 (transform.localScale.x*-1 , transform.localScale.y);
         } 
-        lastAttackRight = false;
-        lastAttackLeft = true;
     }
     public void StopAttack(){
         swordCollider.enabled = false;
+    }
+
+
+    public float damage = 2f;
+    private void  OnTriggerEnter2D(Collider2D other) {
+        print("hit");
+        if(other.tag == "Enemy"){
+            EnemyController enemy = other.GetComponent<EnemyController>();
+            if(enemy != null){
+                enemy.TakeDamage(damage);
+            }
+        }
     }
 }
