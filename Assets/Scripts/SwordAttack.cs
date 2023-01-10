@@ -42,12 +42,23 @@ public class SwordAttack : MonoBehaviour
 
     public float damage = 2f;
     private void  OnTriggerEnter2D(Collider2D other) {
-        print("hit");
-        if(other.tag == "Enemy"){
+        I_damageble damagebleObject= other.GetComponent<I_damageble>();
+        if(other.tag == "Enemy" && damagebleObject != null){
+            
+            Vector2 kb = CalculateKnockBack(other);
             EnemyController enemy = other.GetComponent<EnemyController>();
             if(enemy != null){
-                enemy.TakeDamage(damage);
+                enemy.OnHit(damage,kb);
             }
         }
+    }
+
+    public float knockBackForce = 500f;
+    private Vector2 CalculateKnockBack(Collider2D other){
+        Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+        Vector3 direction = (Vector2)(-parentPosition + other.gameObject.transform.position).normalized;
+        Vector2 knockBack = direction * knockBackForce;
+        print(knockBack);
+        return knockBack;
     }
 }

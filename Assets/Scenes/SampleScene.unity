@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8432200585785333167, guid: a1d3e10b51ef7f24aa72505225aec27e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d3e10b51ef7f24aa72505225aec27e, type: 3}
 --- !u!1 &360937910
@@ -5550,7 +5554,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6271,8 +6275,8 @@ Tilemap:
     m_Data: {fileID: -1171579935, guid: d0cfcb82d2b28d74cac9fd25d50052a9, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1629325650, guid: d0cfcb82d2b28d74cac9fd25d50052a9, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1550066374, guid: d0cfcb82d2b28d74cac9fd25d50052a9, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 5
     m_Data: {fileID: 471991528, guid: d0cfcb82d2b28d74cac9fd25d50052a9, type: 3}
   - m_RefCount: 1
@@ -6291,8 +6295,8 @@ Tilemap:
     m_Data: {fileID: -1748363302, guid: 3f58292170bf85843add7e6eba80bee1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -757211487, guid: 3f58292170bf85843add7e6eba80bee1, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1550066374, guid: d0cfcb82d2b28d74cac9fd25d50052a9, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 73
     m_Data:
@@ -6525,6 +6529,14 @@ PrefabInstance:
     - target: {fileID: 952708639396169338, guid: 5ea8848da5fcae0418b8e6ece8d5a77e, type: 3}
       propertyPath: m_Name
       value: Enemy_mk1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705478947451094216, guid: 5ea8848da5fcae0418b8e6ece8d5a77e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876425240431218254, guid: 5ea8848da5fcae0418b8e6ece8d5a77e, type: 3}
+      propertyPath: movementSpeed
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9080181264786433927, guid: 5ea8848da5fcae0418b8e6ece8d5a77e, type: 3}
       propertyPath: m_RootOrder
