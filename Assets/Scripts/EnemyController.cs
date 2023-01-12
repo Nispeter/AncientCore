@@ -57,9 +57,19 @@ public class EnemyController : MonoBehaviour, I_damageble
     public float dmg = 1f;
     private void OnCollisionEnter2D(Collision2D other) {        
         Collider2D temp = other.collider;
+        Vector2 kb = CalculateKnockBack(temp);
         I_damageble dmgble = temp.GetComponent<I_damageble>();
         if(dmgble != null && temp.tag == "Player"){
-            dmgble.OnHit(dmg);
+            dmgble.OnHit(dmg,kb);
         }
+    }
+
+    public float knockBackForce = 300f;
+    private Vector2 CalculateKnockBack(Collider2D other){
+        Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+        Vector3 direction = (Vector2)(-parentPosition + other.gameObject.transform.position).normalized;
+        Vector2 knockBack = direction * knockBackForce;
+        print(knockBack);
+        return knockBack;
     }
 }

@@ -19,12 +19,12 @@ public class PlayerHealth : MonoBehaviour, I_damageble
     }
 
     public void TakeDamage(float damage){
-        LockHealth();
+        //lockHealth();
         Health-=damage;   
         print("hit, health = " + health);
     }
 
-    public void OnHit(float damage, Vector2 knockBack){
+    public void OnHit(float damage){
 
     }
 
@@ -36,10 +36,13 @@ public class PlayerHealth : MonoBehaviour, I_damageble
             lockHealth = true;
     }
 
-    public void OnHit(float damage){
-        if(!lockHealth)
+    Rigidbody2D rb;
+    public void OnHit(float damage, Vector2 knockBack){
+        if(!lockHealth){
+            rb = GetComponentInParent<Rigidbody2D>();
+            rb.AddForce(knockBack);
             TakeDamage(damage);
-        
+        }
     }
 
     public void Defeat(){
